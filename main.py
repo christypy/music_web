@@ -51,6 +51,11 @@ def result(search_list):
     composer_name = search_list[4]
     album_language = search_list[5]
     print('singer_name',singer_name)
+    for i in search_list:
+        if i =='':
+            print('空值')
+        else:
+            print(i)
     cursor . execute(
         "SELECT singer_name,class,album_name,song_name,years,album_language,author_name,composer_name,id FROM  Excel21  WHERE singer_name like '%{}%'  ".format(singer_name))
     data1 = cursor.fetchall()
