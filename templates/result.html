@@ -1,0 +1,117 @@
+{% extends 'layout.html' %}
+{% block content%}
+
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/static/css/style.css">
+<link rel="stylesheet" type="text/css" href="/static/css/main1.css">
+
+
+<!-- <img src="/static/images/1.png" alt="圖片"> -->
+
+<div class="wrapper d-flex align-items-stretch">
+	<nav id="sidebar" class="active">
+		<div class="custom-menu">
+			<button type="button" id="sidebarCollapse" class="btn btn-primary">
+				<i class="fa fa-bars"></i>
+				<!-- <span class="sr-only">Toggle Menu</span> -->
+			</button>
+		</div>
+		<div class="p-4">
+			<h1><a href="index.html" class="logo">華語流行音樂</a></h1>
+			<ul class="list-unstyled components mb-5">
+				<li class="active">
+					<a href="{{url_for('result',search_list=search_list)}}"><span class="fa fa-list mr-3"></span> 結果列表</a>
+				</li>
+				<li>
+					<a href="{{url_for('cloud',search_list=search_list)}}"><span class="fa fa-cloud mr-3"></span> 文字雲</a>
+				</li>
+				<li>
+					<a href="{{url_for('bar',search_list=search_list)}}"><span class="fa fa-bar-chart mr-3"></span> 統計資料</a>
+				</li>
+
+			</ul>
+
+			<div class="mb-5">
+
+
+			</div>
+
+			<div class="footer">
+				<p>
+					dmlab 2020
+				</p>
+			</div>
+
+		</div>
+	</nav>
+
+	<!-- Page Content  -->
+	<div id="content" class="p-4 p-md-5 pt-5">
+		<div class="limiter">
+			<div class="container-table100">
+				<div class="wrap-table100">
+					<h5>共有{{len_data1}}筆</h5>
+					<div class="table100 ver3 m-b-110">
+						<table data-vertable="ver3">
+							<thead>
+								<tr class="row100 head">
+									<th class="column100 column0" data-column="column0">編號</th>
+									<th class="column100 column1" data-column="column1">歌手名稱</th>
+									<th class="column100 column2" data-column="column2">歌手類別</th>
+									<th class="column100 column3" data-column="column3">專輯名稱</th>
+									<th class="column100 column4" data-column="column4">歌曲名稱</th>
+									<th class="column100 column5" data-column="column5">發行年份</th>
+									<th class="column100 column6" data-column="column6">專輯語言</th>
+									<th class="column100 column7" data-column="column7">作詞者</th>
+									<th class="column100 column8" data-column="column8">作曲者</th>
+									<th class="column100 column9" data-column="column9">選取</th>
+
+								</tr>
+							</thead>
+							<tbody>
+								{% if data1 %}
+								{% for temp in data1 %}
+								<tr class="row100">
+									<td class="column100 column1 count" data-column="column0" style="width: 5px;"></td>
+
+									<td class="column100 column1" data-column="column1"style="width: 10px;" >{{temp[0]}}</td>
+									<td class="column100 column2" data-column="column2">{{temp[1]}}</td>
+									<td class="column100 column3" data-column="column3">{{temp[2]}}</td>
+									<td class="column100 column4" data-column="column4">{{temp[3]}}</td>
+									<td class="column100 column5" data-column="column5">{{temp[4]}}</td>
+									<td class="column100 column6" data-column="column6">{{temp[5]}}</td>
+									<td class="column100 column7" data-column="column7">{{temp[6]}}</td>
+									<td class="column100 column8" data-column="column8">{{temp[7]}}</td>
+									<td class="column100 column9" data-column="column9">
+
+										<input class="input" type="checkbox" value="" id="defaultCheck2"
+											style="text-align:center; vertical-align: middle;">
+									</td>
+
+								</tr>
+								{% endfor %}
+								{% endif %}
+							</tbody>
+						</table>
+					</div>
+
+
+
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+<script src="/static/js/jquery.min.js"></script>
+<script src="/static/js/popper.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
+<script src="/static/js/main.js"></script>
+
+
+{% endblock content%}
